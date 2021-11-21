@@ -2,6 +2,7 @@
 , pkgs
 , lib
 , fetchFromGitHub
+, fetchpatch
 , pkg-config
 , freetype
 , SDL2
@@ -115,6 +116,13 @@ in
 
     nativeBuildInputs = [
       pkg-config
+    ];
+
+    patches = [
+      (fetchpatch {
+        url = "https://github.com/mobile-nixos/lvgui/pull/1.patch";
+        sha256 = "0gs7a2p2znkqm1c6plbz6p3zdh7fmclakdgdf3qn2f0ikrlsb6mz";
+      })
     ];
 
     buildInputs = [
